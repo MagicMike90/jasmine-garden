@@ -1,7 +1,7 @@
-import React from "react";
-import { StyleSheet, TextInput } from "react-native";
+import React from 'react';
+import { StyleSheet, TextInput } from 'react-native';
 
-import { inputPlaceholder } from "../constants/colors";
+import { inputPlaceholder } from '../constants/colors';
 
 const Input = ({ inputValue, onChangeText, onDoneAddItem }) => (
   <TextInput
@@ -13,7 +13,7 @@ const Input = ({ inputValue, onChangeText, onDoneAddItem }) => (
     multiline={true}
     autoCapitalize="sentences"
     underlineColorAndroid="transparent"
-    selectionColor={"white"}
+    selectionColor={'white'}
     maxLength={30}
     returnKeyType="done"
     autoCorrect={false}
@@ -27,9 +27,9 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingRight: 15,
     fontSize: 34,
-    color: "white",
-    fontWeight: "500"
-  }
+    color: 'white',
+    fontWeight: '500',
+  },
 });
 
 export default Input;

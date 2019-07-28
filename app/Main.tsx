@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import uuid from 'uuid/v1';
 
+import { PermissionProvider } from './testPage/PermissionContext';
+
 import Button from './components/Button';
 import Header from './components/Header';
 import Input from './components/Input';
@@ -142,52 +144,60 @@ export default class Main extends React.Component<{}, IMainState> {
   public saveItems = (newItem) => {
     const saveItem = AsyncStorage.setItem('Todos', JSON.stringify(newItem));
   }
-
   public render() {
-    const { inputValue, loadingItems, allItems } = this.state;
+    const { inputValue } = this.state;
 
     return (
-      <LinearGradient colors={primaryGradientArray} style={styles.container}>
-        <StatusBar barStyle="light-content" />
-        <View style={styles.centered}>
-          <Header title={headerTitle} />
-        </View>
-        <View style={styles.inputContainer}>
-          <SubTitle subtitle={'What\'s Next?'} />
-          <Input
-            inputValue={inputValue}
-            onChangeText={this.newInputValue}
-            onDoneAddItem={this.onDoneAddItem}
-          />
-        </View>
-        <View style={styles.list}>
-          <View style={styles.column}>
-            <SubTitle subtitle={'Recent Notes'} />
-            <View style={styles.deleteAllButton}>
-              <Button deleteAllItems={this.deleteAllItems} />
-            </View>
+      <PermissionProvider>
+        <LinearGradient colors={primaryGradientArray} style={styles.container}>
+          <StatusBar barStyle="light-content" />
+          <View style={styles.centered}>
+            <Header title={headerTitle} />
           </View>
+          <View style={styles.inputContainer}>
+            <SubTitle subtitle={'What\'s Next?'} />
+            <Input
+              inputValue={inputValue}
+              onChangeText={this.newInputValue}
+              onDoneAddItem={this.onDoneAddItem}
+            />
+          </View>
+          <View style={styles.list}>
+            <View style={styles.column}>
+              <SubTitle subtitle={'Recent Notes'} />
+              <View style={styles.deleteAllButton}>
+                <Button deleteAllItems={this.deleteAllItems} />
+              </View>
+            </View>
 
-          {loadingItems ? (
-            <ScrollView contentContainerStyle={styles.scrollableList}>
-              {Object.values(allItems)
-                .reverse()
-                .map((item) => (
-                  <List
-                    key={item.id}
-                    {...item}
-                    deleteItem={this.deleteItem}
-                    completeItem={this.completeItem}
-                    incompleteItem={this.incompleteItem}
-                  />
-                ))}
-            </ScrollView>
-          ) : (
-            <ActivityIndicator size="large" color="white" />
-          )}
-        </View>
-      </LinearGradient>
+            {this.loadingView()}
+          </View>
+        </LinearGradient>
+      </PermissionProvider>
     );
+  }
+
+  private loadingView() {
+    const { loadingItems, allItems } = this.state;
+    if (loadingItems) {
+      return (
+        <ScrollView contentContainerStyle={styles.scrollableList}>
+          {Object.values(allItems)
+            .reverse()
+            .map((item) => (
+              <List
+                key={item.id}
+                {...item}
+                deleteItem={this.deleteItem}
+                completeItem={this.completeItem}
+                incompleteItem={this.incompleteItem}
+              />
+            ))}
+        </ScrollView>
+      );
+    }
+
+    return <ActivityIndicator size="large" color="white" />;
   }
 }
 
