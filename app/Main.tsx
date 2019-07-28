@@ -10,21 +10,20 @@ import {
 } from 'react-native';
 import uuid from 'uuid/v1';
 
-import { PermissionProvider } from './testPage/PermissionContext';
-
 import Button from './components/Button';
 import Header from './components/Header';
 import Input from './components/Input';
 import List from './components/List';
 import SubTitle from './components/SubTitle';
 import { primaryGradientArray } from './constants/colors';
+import { TodoItem } from './types/Item';
 
 const headerTitle = 'Todo';
 
 interface IMainState {
   inputValue: string;
   loadingItems: boolean;
-  allItems: {};
+  allItems: TodoItem;
   isCompleted: boolean;
 }
 
@@ -148,46 +147,42 @@ export default class Main extends React.Component<{}, IMainState> {
     const { inputValue } = this.state;
 
     return (
-      <PermissionProvider>
-        <LinearGradient colors={primaryGradientArray} style={styles.container}>
-          <StatusBar barStyle="light-content" />
-          <View style={styles.centered}>
-            <Header title={headerTitle} />
-          </View>
-          <View style={styles.inputContainer}>
-            <SubTitle subtitle={'What\'s Next?'} />
-            <Input
-              inputValue={inputValue}
-              onChangeText={this.newInputValue}
-              onDoneAddItem={this.onDoneAddItem}
-            />
-          </View>
-          <View style={styles.list}>
-            <View style={styles.column}>
-              <SubTitle subtitle={'Recent Notes'} />
-              <View style={styles.deleteAllButton}>
-                <Button deleteAllItems={this.deleteAllItems} />
-              </View>
+      <LinearGradient colors={primaryGradientArray} style={styles.container}>
+        <StatusBar barStyle="light-content" />
+        <View style={styles.centered}>
+          <Header title={headerTitle} />
+        </View>
+        <View style={styles.inputContainer}>
+          <SubTitle subtitle={'What\'s Next?'} />
+          <Input
+            inputValue={inputValue}
+            onChangeText={this.newInputValue}
+            onDoneAddItem={this.onDoneAddItem}
+          />
+        </View>
+        <View style={styles.list}>
+          <View style={styles.column}>
+            <SubTitle subtitle={'Recent Notes'} />
+            <View style={styles.deleteAllButton}>
+              <Button deleteAllItems={this.deleteAllItems} />
             </View>
-
-            {this.loadingView()}
           </View>
-        </LinearGradient>
-      </PermissionProvider>
+
+          {this.loadingView()}
+        </View>
+      </LinearGradient>
     );
   }
 
   private renderList(allItems) {
-    const items = Object.values(allItems).reverse();
-    return items.map((item) => (
+    return (
       <List
-        key={item.id}
-        {...item}
+        items={Object.values(allItems).reverse()}
         deleteItem={this.deleteItem}
         completeItem={this.completeItem}
         incompleteItem={this.incompleteItem}
       />
-    ));
+    );
   }
 
   private loadingView() {

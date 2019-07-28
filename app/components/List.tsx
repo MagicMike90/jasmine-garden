@@ -1,4 +1,3 @@
-import { MaterialIcons } from '@expo/vector-icons';
 import React, { Component } from 'react';
 import {
   Dimensions,
@@ -8,73 +7,30 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-
-import {
-  circleActive,
-  circleInactive,
-  deleteIconColor,
-  itemListText,
-  itemListTextStrike,
-} from '../constants/colors';
+import { TodoItem } from '../types/Item';
+import ListItem from './ListItem';
 
 const { width } = Dimensions.get('window');
-
-class List extends Component {
-  public onToggleCircle = () => {
-    const { isCompleted, id, completeItem, incompleteItem } = this.props;
-    if (isCompleted) {
-      incompleteItem(id);
-    } else {
-      completeItem(id);
-    }
-  }
-
+interface IListProps {
+  deleteItem: () => {};
+  completeItem: () => {};
+  items: [TodoItem];
+  incompleteItem: (id) => void;
+}
+class List extends Component<IListProps, {}> {
   public render() {
-    const { text, deleteItem, id, isCompleted } = this.props;
-
-    return (
-      <View style={styles.container}>
-        <View style={styles.column}>
-          <TouchableOpacity onPress={this.onToggleCircle}>
-            <View
-              style={[
-                styles.circle,
-                isCompleted
-                  ? { borderColor: circleActive }
-                  : { borderColor: circleInactive },
-              ]}
-            />
-          </TouchableOpacity>
-          <Text
-            style={[
-              styles.text,
-              isCompleted
-                ? {
-                    color: itemListTextStrike,
-                    textDecorationLine: 'line-through',
-                  }
-                : { color: itemListText },
-            ]}
-          >
-            {text}
-          </Text>
-        </View>
-        {isCompleted ? (
-          <View style={styles.button}>
-            <TouchableOpacity onPressOut={() => deleteItem(id)}>
-              <MaterialIcons
-                name="delete-forever"
-                size={24}
-                color={deleteIconColor}
-              />
-            </TouchableOpacity>
-          </View>
-        ) : null}
-      </View>
-    );
+    const { items, deleteItem, completeItem, incompleteItem } = this.props;
+    return items.map((item) => (
+      <ListItem
+        key={item.id}
+        {...item}
+        deleteItem={deleteItem}
+        completeItem={completeItem}
+        incompleteItem={incompleteItem}
+      />
+    ));
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     width: width - 50,
@@ -101,26 +57,5 @@ const styles = StyleSheet.create({
       },
     }),
   },
-  column: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: width / 1.5,
-  },
-  text: {
-    fontWeight: '500',
-    fontSize: 16,
-    marginVertical: 15,
-  },
-  circle: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    borderWidth: 3,
-    margin: 10,
-  },
-  button: {
-    marginRight: 10,
-  },
 });
-
 export default List;
