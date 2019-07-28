@@ -177,22 +177,25 @@ export default class Main extends React.Component<{}, IMainState> {
     );
   }
 
+  private renderList(allItems) {
+    const items = Object.values(allItems).reverse();
+    return items.map((item) => (
+      <List
+        key={item.id}
+        {...item}
+        deleteItem={this.deleteItem}
+        completeItem={this.completeItem}
+        incompleteItem={this.incompleteItem}
+      />
+    ));
+  }
+
   private loadingView() {
     const { loadingItems, allItems } = this.state;
     if (loadingItems) {
       return (
         <ScrollView contentContainerStyle={styles.scrollableList}>
-          {Object.values(allItems)
-            .reverse()
-            .map((item) => (
-              <List
-                key={item.id}
-                {...item}
-                deleteItem={this.deleteItem}
-                completeItem={this.completeItem}
-                incompleteItem={this.incompleteItem}
-              />
-            ))}
+          {this.renderList(allItems)}
         </ScrollView>
       );
     }
