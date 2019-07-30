@@ -15,7 +15,7 @@ import {
   deleteIconColor,
   itemListText,
   itemListTextStrike,
-} from '../constants/colors';
+} from '../../constants';
 
 const { width } = Dimensions.get('window');
 

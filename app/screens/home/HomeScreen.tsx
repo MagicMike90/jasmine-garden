@@ -9,25 +9,24 @@ import {
   View,
 } from 'react-native';
 import uuid from 'uuid/v1';
-
-import Button from './components/Button';
-import Header from './components/Header';
-import Input from './components/Input';
-import List from './components/List';
-import SubTitle from './components/SubTitle';
-import { primaryGradientArray } from './constants/colors';
-import { TodoItem } from './types/Item';
+import { primaryGradientArray } from '../../constants';
+import DeleteListButton from '../../library/components/DeleteListButton';
+import Header from '../../library/components/Header';
+import Input from '../../library/components/Input';
+import List from '../../library/components/List';
+import SubTitle from '../../library/components/SubTitle';
+import { TodoItem } from '../../types/Item';
 
 const headerTitle = 'Todo';
 
 interface IMainState {
   inputValue: string;
   loadingItems: boolean;
-  allItems: TodoItem;
+  allItems: {};
   isCompleted: boolean;
 }
 
-export default class Main extends React.Component<{}, IMainState> {
+export class HomeScreen extends React.Component<{}, IMainState> {
   public state = {
     inputValue: '',
     loadingItems: false,
@@ -164,7 +163,7 @@ export default class Main extends React.Component<{}, IMainState> {
           <View style={styles.column}>
             <SubTitle subtitle={'Recent Notes'} />
             <View style={styles.deleteAllButton}>
-              <Button deleteAllItems={this.deleteAllItems} />
+              <DeleteListButton deleteAllItems={this.deleteAllItems} />
             </View>
           </View>
 
@@ -177,7 +176,7 @@ export default class Main extends React.Component<{}, IMainState> {
   private renderList(allItems) {
     return (
       <List
-        items={Object.values(allItems).reverse()}
+        items={Object.values(allItems).reverse() as [TodoItem]}
         deleteItem={this.deleteItem}
         completeItem={this.completeItem}
         incompleteItem={this.incompleteItem}

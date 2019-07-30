@@ -2,12 +2,12 @@ import { MaterialIcons } from '@expo/vector-icons';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 
-import { lighterWhite } from '../constants/colors';
+import { lighterWhite } from '../../constants';
 
-const Button = ({ deleteAllItems }) => (
+const DeleteListButton = ({ deleteAllItems }) => (
   <TouchableOpacity onPress={deleteAllItems}>
     <MaterialIcons name="delete-sweep" size={24} color={lighterWhite} />
   </TouchableOpacity>
 );
 
-export default Button;
+export default DeleteListButton;
