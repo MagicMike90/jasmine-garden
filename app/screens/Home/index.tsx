@@ -26,7 +26,7 @@ interface IMainState {
   isCompleted: boolean;
 }
 
-export class HomeScreen extends React.Component<{}, IMainState> {
+export class Home extends React.Component<{}, IMainState> {
   public state = {
     inputValue: '',
     loadingItems: false,

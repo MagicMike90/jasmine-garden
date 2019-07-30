@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from './node_modules/react';
 import { Image, StyleSheet, View } from 'react-native';
 import { colors } from '../../constants/colors';
 import { strings } from '../../constants/strings';
