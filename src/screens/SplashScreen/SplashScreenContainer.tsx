@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
-import SplashScreen from './SplashScreen';
 import { connect } from 'react-redux';
+import SplashScreen from './SplashScreen';
 
 class SplashScreenContainer extends Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return <SplashScreen {...this.props} />;
-    }
+  render() {
+    return <SplashScreen {...this.props} />;
+  }
 }
 
 function mapStateToProps(state) {
-    return {};
+  return {};
 }
 function mapDispatchToProps() {
-    return {};
+  return {};
 }
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps,
 )(SplashScreenContainer);
