@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 
-import { inputPlaceholder } from '../../constants';
+import { inputPlaceholder } from '../constants';
 
 const Input = ({ inputValue, onChangeText, onDoneAddItem }) => (
   <TextInput

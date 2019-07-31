@@ -1,3 +1,8 @@
+import DeleteListButton from '@components/DeleteListButton';
+import Header from '@components/Header';
+import Input from '@components/Input';
+import List from '@components/List';
+import SubTitle from '@components/SubTitle';
 import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import {
@@ -10,11 +15,6 @@ import {
 } from 'react-native';
 import uuid from 'uuid/v1';
 import { primaryGradientArray } from '../../constants';
-import DeleteListButton from '../../library/components/DeleteListButton';
-import Header from '../../library/components/Header';
-import Input from '../../library/components/Input';
-import List from '../../library/components/List';
-import SubTitle from '../../library/components/SubTitle';
 import { TodoItem } from '../../types/Item';
 
 const headerTitle = 'Todo';

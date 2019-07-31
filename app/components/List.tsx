@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { TodoItem } from '../../types/Item';
+import { TodoItem } from '../types/Item';
 import ListItem from './ListItem';
 
 const { width } = Dimensions.get('window');
