@@ -46,7 +46,7 @@ export class SignUp extends React.PureComponent<SignUpProps, {}> {
           <Button
             buttonStyle={{ marginTop: 20 }}
             title="Sign In"
-            onPress={() => navigation.navigate('SignIn')}
+            onPress={this.signIn}
           />
         </Card>
       </View>

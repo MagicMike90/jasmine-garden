@@ -5,6 +5,15 @@
     "jsx": "react-native",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@actions/*": ["app/actions/*"],
+      "@reducers/*": ["app/reducers/*"],
+      "@lib/*": ["app/lib/*"],
+      "@constants/*": ["app/constants/*"],
+      "@assets/*": ["app/assets/*"]
+    }
   }
 }

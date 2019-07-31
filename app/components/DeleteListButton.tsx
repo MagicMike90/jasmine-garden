@@ -2,7 +2,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 
-import { lighterWhite } from '../../constants';
+import { lighterWhite } from '../constants';
 
 const DeleteListButton = ({ deleteAllItems }) => (
   <TouchableOpacity onPress={deleteAllItems}>
