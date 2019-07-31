@@ -8,7 +8,7 @@ import PopularScreen from 'src/screens/PopularScreen';
 import { HomeTabNavigation } from './HomeTabNavigation';
 
 import TabIcon from 'src/components/TabIcon';
-import AppStyles from 'src/config/styles';
+import { AppStyles } from 'src/config/styles';
 
 const HomeTabIcon = ({ tintColor }) => (
   <TabIcon name="home" tintColor={tintColor} />

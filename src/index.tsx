@@ -20,6 +20,9 @@ const theme = {
 };
 
 export default class App extends Component {
+  state = {
+    fontLoaded: false,
+  };
   async componentDidMount() {
     await Font.loadAsync({
       'Roboto-Light': require('../assets/fonts/Roboto-Light.ttf'),
@@ -27,9 +30,12 @@ export default class App extends Component {
       'Roboto-Regular': require('../assets/fonts/Roboto-Regular.ttf'),
       'Roboto-Thin': require('../assets/fonts/Roboto-Thin.ttf'),
     });
+
+    this.setState({ fontLoaded: true });
   }
   render() {
-    return (
+    console.log('this.state.fontLoaded ', this.state.fontLoaded);
+    return this.state.fontLoaded ? (
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <PaperProvider theme={theme}>
@@ -37,6 +43,6 @@ export default class App extends Component {
           </PaperProvider>
         </PersistGate>
       </Provider>
-    );
+    ) : null;
   }
 }

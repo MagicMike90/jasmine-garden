@@ -6,7 +6,7 @@ import CallsScreen from 'src/screens/CallsScreen';
 import GroupsScreen from 'src/screens/GroupsScreen';
 import MessagesScreen from 'src/screens/MessagesScreen';
 
-import AppStyles from 'src/config/styles';
+import { AppStyles } from 'src/config/styles';
 
 export const HomeTabNavigation = createMaterialTopTabNavigator(
   {

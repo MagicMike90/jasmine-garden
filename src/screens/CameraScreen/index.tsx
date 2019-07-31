@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { RNCamera } from 'react-native-camera';
@@ -51,7 +50,3 @@ export default class CameraScreen extends Component {
     );
   }
 }
-
-CameraScreen.propTypes = {
-  navigation: PropTypes.object,
-};

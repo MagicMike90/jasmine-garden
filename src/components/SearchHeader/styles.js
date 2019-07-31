@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import AppStyles from 'src/config/styles';
+import {AppStyles} from 'src/config/styles';
 import { isIphoneX } from 'src/lib/isIphoneX';
 
 const styles = StyleSheet.create({

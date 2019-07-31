@@ -3,7 +3,7 @@ import { SectionList, View } from 'react-native';
 import { Text, TouchableRipple } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import AppStyles from 'src/config/styles';
+import {AppStyles} from 'src/config/styles';
 import CallItem from './CallItem';
 
 import { users } from '../../../assets/fake_data';
