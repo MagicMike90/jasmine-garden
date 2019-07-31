@@ -6,14 +6,9 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "@components/*": ["components/*"],
-      "@actions/*": ["app/actions/*"],
-      "@reducers/*": ["app/reducers/*"],
-      "@lib/*": ["app/lib/*"],
-      "@constants/*": ["app/constants/*"],
-      "@assets/*": ["app/assets/*"]
+      "src/*": ["./*"]
     }
   }
 }
