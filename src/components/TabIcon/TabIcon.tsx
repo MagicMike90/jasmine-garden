@@ -19,7 +19,7 @@ export default class TabIcon extends Component<TabIconProps, {}> {
     switch (type) {
       case 'entypo':
         return (
-          <EntypoIcon
+          <Entypo
             style={style ? style : {}}
             name={name}
             size={24}
