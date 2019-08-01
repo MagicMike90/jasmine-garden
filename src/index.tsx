@@ -35,7 +35,6 @@ export default class App extends Component {
     this.setState({ fontLoaded: true });
   }
   render() {
-    console.log('this.state.fontLoaded ', this.state.fontLoaded);
     return this.state.fontLoaded ? (
       <Provider store={store}>
         <PersistGate persistor={persistor}>

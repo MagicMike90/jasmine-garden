@@ -4,7 +4,7 @@ import { Text, View } from 'react-native';
 import { Button } from 'react-native-paper';
 import StatusList from 'src/components/StatusList';
 
-import { NavigationProps } from 'src/types/NavigationProps';
+import { NavigationProps } from 'src/types/navigation';
 import styles from './styles';
 
 export default class MessagesScreen extends Component<NavigationProps, {}> {

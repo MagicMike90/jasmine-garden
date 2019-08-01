@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'react-native-paper';
 import { SafeAreaView } from 'react-navigation';
 
-import { NavigationProps } from 'src/types/NavigationProps';
+import { NavigationProps } from 'src/types/navigation';
 import styles from './styles';
 
 export default class SplashScreen extends Component<NavigationProps, {}> {
