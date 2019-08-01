@@ -36,7 +36,6 @@ const styles = StyleSheet.create({
         height: 40,
         paddingHorizontal: 10,
         fontSize: 16,
-        fontFamily: AppStyles.fonts.FONT_REGULAR
     },
     btn: {
         width: '75%',
@@ -46,7 +45,6 @@ const styles = StyleSheet.create({
     },
     btnText: {
         fontSize: 16,
-        fontFamily: AppStyles.fonts.FONT_REGULAR,
         color: '#7f8c8d'
     }
 });

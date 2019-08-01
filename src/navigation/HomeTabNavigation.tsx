@@ -37,7 +37,6 @@ export const HomeTabNavigation = createMaterialTopTabNavigator(
       labelStyle: {
         fontWeight: 'bold',
         fontSize: Platform.OS === 'ios' ? 11 : 12,
-        fontFamily: AppStyles.fonts.FONT_MEDIUM,
       },
       indicatorStyle: {
         backgroundColor: AppStyles.colors.accentColor,

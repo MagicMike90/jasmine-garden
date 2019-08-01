@@ -1,8 +1,8 @@
+import Icon from '@expo/vector-icons/MaterialIcons';
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Text, TouchableRipple } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import {AppStyles} from 'src/config/styles';
+import { AppStyles } from 'src/config/styles';
 import Avatar from '../Avatar/Avatar';
 
 import styles from './styles';

@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { FlatList, View } from 'react-native';
 import { Text } from 'react-native-paper';
 
+import Icon from '@expo/vector-icons/MaterialIcons';
 import { TouchableRipple } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import StatusItem from './StatusItem';
 import styles from './styles';
 
 import { users } from '../../../assets/fake_data';
 
-export default class componentName extends Component {
+export default class StatusList extends Component {
   renderItem = ({ item }) => {
     return <StatusItem item={item} />;
   }

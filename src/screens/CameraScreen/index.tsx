@@ -1,7 +1,7 @@
+import Icon from '@expo/vector-icons/MaterialIcons';
 import React, { Component } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { RNCamera } from 'react-native-camera';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import { SafeAreaView } from 'react-navigation';
 import styles from './styles';
 

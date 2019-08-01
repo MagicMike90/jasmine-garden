@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, TextInput, Keyboard, Platform } from 'react-native';
 import { TouchableRipple } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from '@expo/vector-icons/MaterialIcons';
 import {AppStyles} from 'src/config/styles';
 import styles from './styles';
 

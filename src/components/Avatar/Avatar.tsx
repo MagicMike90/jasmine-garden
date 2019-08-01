@@ -1,6 +1,6 @@
+import Icon from '@expo/vector-icons/MaterialIcons';
 import React, { Component } from 'react';
 import { Image, View } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Images from 'src/config/images';
 import { AvatarProps } from './avatar';
