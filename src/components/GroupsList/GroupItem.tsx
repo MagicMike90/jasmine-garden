@@ -3,9 +3,10 @@ import { View } from 'react-native';
 import { Card, Text } from 'react-native-paper';
 
 import Avatar from '../Avatar';
+import { GroupItemProps } from './groupList';
 import styles from './styles';
 
-export default class GroupItem extends Component {
+export default class GroupItem extends Component<GroupItemProps, {}> {
   onPress = () => {
     alert('Pressed');
   }

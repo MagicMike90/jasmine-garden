@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
 import { Button } from 'react-native-paper';
 import { SafeAreaView } from 'react-navigation';
 
-import PropTypes from 'prop-types';
+import { NavigationProps } from 'src/types/NavigationProps';
 import styles from './styles';
 
-export default class SplashScreen extends Component {
+export default class SplashScreen extends Component<NavigationProps, {}> {
   onPress = () => {
     const { navigation } = this.props;
     navigation.navigate('MainScreen');
@@ -39,7 +38,7 @@ export default class SplashScreen extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Button raised={true} color="#0084ff" onPress={this.onPress}>
+        <Button color="#0084ff" onPress={this.onPress}>
           CONTINUE AS USER
         </Button>
         {/* <LoginButton
@@ -65,7 +64,3 @@ export default class SplashScreen extends Component {
     );
   }
 }
-
-SplashScreen.propTypes = {
-  navigation: PropTypes.object,
-};

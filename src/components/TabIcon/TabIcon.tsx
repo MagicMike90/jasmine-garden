@@ -6,10 +6,10 @@ import { AppStyles } from 'src/config/styles';
 import styles from './styles';
 
 interface TabIconProps {
-  name: string;
-  tintColor: string;
-  style: object;
-  type: string;
+  name?: string;
+  tintColor?: any;
+  style?: object;
+  type?: string;
 }
 
 export default class TabIcon extends Component<TabIconProps, {}> {

@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import Metrics from 'src/config/metrics';
-import {AppStyles} from 'src/config/styles';
+import { AppStyles } from 'src/config/styles';
 
 const styles = StyleSheet.create({
   card: {
@@ -44,8 +44,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   list: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },

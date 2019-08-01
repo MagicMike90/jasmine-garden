@@ -1,12 +1,16 @@
 import * as Font from 'expo-font';
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 import { Button } from 'react-native-paper';
 import StatusList from 'src/components/StatusList';
 
+import { NavigationProps } from 'src/types/NavigationProps';
 import styles from './styles';
 
-export default class MessagesScreen extends Component {
+export default class MessagesScreen extends Component<NavigationProps, {}> {
+  state = {
+    fontLoaded: false,
+  };
   onPress = () => {
     const { navigation } = this.props;
     navigation.navigate('CameraScreen');
@@ -23,7 +27,7 @@ export default class MessagesScreen extends Component {
   }
 
   render() {
-    return (
+    return this.state.fontLoaded ? (
       <View style={styles.container}>
         <StatusList />
         <Button
@@ -34,6 +38,8 @@ export default class MessagesScreen extends Component {
           Press me
         </Button>
       </View>
+    ) : (
+      <Text>Loading...</Text>
     );
   }
 }

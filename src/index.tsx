@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Text } from 'react-native';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import NavigationStack from 'src/navigation';
@@ -43,6 +44,8 @@ export default class App extends Component {
           </PaperProvider>
         </PersistGate>
       </Provider>
-    ) : null;
+    ) : (
+      <Text>Loading...</Text>
+    );
   }
 }

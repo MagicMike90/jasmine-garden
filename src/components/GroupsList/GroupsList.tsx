@@ -58,6 +58,7 @@ export default class GroupsList extends Component {
         contentContainerStyle={styles.list}
         renderItem={this.renderItem}
         showsVerticalScrollIndicator={false}
+        keyExtractor={(item, index) => index.toString()}
       />
     );
   }

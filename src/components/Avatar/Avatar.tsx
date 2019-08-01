@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Image, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import PropTypes from 'prop-types';
 import Images from 'src/config/images';
+import { AvatarProps } from './avatar';
 import styles from './styles';
 
-export default class Avatar extends Component {
+export default class Avatar extends Component<AvatarProps, {}> {
   render() {
     const { uri, large, isGroup, enableDot } = this.props;
 
@@ -29,17 +29,3 @@ export default class Avatar extends Component {
     );
   }
 }
-
-Avatar.defultProps = {
-  enableDot: true,
-  large: false,
-  isGroup: false,
-  liveEnabled: true,
-};
-
-Avatar.propTypes = {
-  large: PropTypes.bool,
-  isGroup: PropTypes.bool,
-  enableDot: PropTypes.bool,
-  uri: PropTypes.string,
-};
