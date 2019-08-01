@@ -54,6 +54,7 @@ export default class componentName extends Component {
           renderItem={this.renderItem}
           showsHorizontalScrollIndicator={false}
           ListHeaderComponent={this.renderHeader}
+          keyExtractor={(item, index) => index.toString()}
         />
       </View>
     );
