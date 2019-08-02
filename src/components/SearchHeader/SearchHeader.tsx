@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Platform, TouchableOpacity, View } from 'react-native';
-import { Text } from 'react-native-paper';
+import { Appbar, Searchbar, Text } from 'react-native-paper';
 import FBStatusBar from 'src/components/FBStatusBar';
-import styles from './styles';
-
-import { Appbar, Searchbar } from 'react-native-paper';
 import { NavigationProps } from 'src/types/navigation';
+import styles from './styles';
 interface SearchHeaderState {
   searchQuery: string;
   isFocused: boolean;
@@ -49,13 +47,14 @@ export default class SearchHeader extends Component<
       this.onFocus();
     }
   }
+  assignInput(input) {
+    this.searchTextInput = input;
+  }
   renderHeader() {
     return this.state.isFocused ? (
       <Appbar.Header style={styles.toolbar}>
         <Searchbar
-          ref={(input) => {
-            this.searchTextInput = input;
-          }}
+          ref={this.assignInput}
           style={styles.searchbar}
           placeholder="Search"
           icon={Platform.OS === 'ios' ? 'keyboard-arrow-left' : 'arrow-back'}
